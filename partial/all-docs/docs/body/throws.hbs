@@ -1,0 +1,10 @@
+{{#if exceptions~}}
+**Throws**: {{#if (equal exceptions.length 1)}}{{#if type.names}}{{>linked-type-list types=type.names}} {{/if}}{{{inlineLinks description}}}{{else~}}
+{{#each exceptions~}}
+- {{#if type.names}}{{>linked-type-list types=type.names}} {{/if}}{{{inlineLinks description}}}
+{{/each}}
+{{/if}}
+
+
+{{! TODO: see TODO in description }}
+{{/if}}
