@@ -1,12 +1,8 @@
 {{#globals kind=kind~}}
 {{#if @first~}}
-{{#if (hasMultipleKinds (_globals))}}{{>heading-indent}}{{/if~}}
-{{../title~}}
-{{#unless (hasMultipleKinds (_globals))}}:{{/unless}}
-
+{{#if (hasMultipleKinds (_globals))}}- {{/if~}}{{../title}}:
 {{/if~}}
-- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
+{{#if (hasMultipleKinds (_globals))}}  {{/if}}- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
 {{#if @last}}
-
 {{/if~}}
 {{/globals}}
