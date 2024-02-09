@@ -1,0 +1,12 @@
+{{#globals kind=kind~}}
+{{#if @first~}}
+{{#if (hasMultipleKinds (_globals))}}{{>heading-indent}}{{/if~}}
+{{../title~}}
+{{#unless (hasMultipleKinds (_globals))}}:{{/unless}}
+
+{{/if~}}
+- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
+{{#if @last~}}
+{{_force_blank_line_for_readability_}}
+{{/if~}}
+{{/globals}}
