@@ -9,8 +9,6 @@ function extractSourceLink() {
   // TODO: this logic is assuming *nix style path separators
   const relPath = '.' + path.slice(cwd.length)
 
-  // return JSON.stringify(path.match(new RegExp('^.+?/' + myPackageName + '(/.+)$')), null, '  ')
-
   return relPath + '/' + filename + '#L' + lineno
 }
 
