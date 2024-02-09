@@ -1,0 +1,8 @@
+/test-staging
+/dist
+/coverage
+/node_modules
+/qa
+/.yalc
+/yalc.lock
+/.docusaurus

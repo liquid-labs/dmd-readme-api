@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/liquid-labs/dmd-readme-api/issues"
   },
-  "homepage": "https://github.com/liquid-labs/dmd-readme-api#readme"
+  "homepage": "https://github.com/liquid-labs/dmd-readme-api#readme",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
 }
