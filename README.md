@@ -2,6 +2,13 @@
 
 A [jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) template plugin generating elegant, compact one-page APIs in markdown, suitable for embedding in a `README.md`.
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [History](#history])
+- [Contributing](#contributing)
+- [Support](#support)
+
 ## Installation
 
 ```bash
