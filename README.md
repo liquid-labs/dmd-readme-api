@@ -1,6 +1,6 @@
 # dmd-readme-api
 
-A [jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) dmd template plugin suitable for generating elegant, compact one-page APIs in markdown, suitable for embedding in a `README.md`.
+A [jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) template plugin generating elegant, compact one-page APIs in markdown, suitable for embedding in a `README.md`.
 
 ## Installation
 
