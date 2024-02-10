@@ -1,7 +1,7 @@
 {
   "name": "dmd-readme-api",
   "version": "1.0.0-alpha.0",
-  "description": "",
+  "description": "A jsdoc2md dmd template plugin suitable for generating elegant, compact one-page APIs in markdown, , suitable for embedding in a README.md.",
   "main": "dist/dmd-readme-api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
