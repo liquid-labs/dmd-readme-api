@@ -93,6 +93,18 @@ One nice thing about jsdoc2md and jsdoc is there "relatively" easy to customize.
 
 So, anyway, there's a system called dmd which process [handlebarjs](https://handlebarsjs.com/), and jsdoc2md has their own dmd template, [@jsdoc2md/dmd](https://github.com/jsdoc2md/dmd) and you can make little plugins to override their stuff. So that's what we did, and that's what this library is.
 
-We tried to cleanup a lot of things in template. You can see the full list of modifications in the [`DEV_NOTES.md`](./DEV_NOTES.md). Some of the highlights include:
+We tried to cleanup a lot of things in template. You can see the full list of modifications in the [`DEV_NOTES.md`](./DEV_NOTES.md). In summmary, though, we believe our template:
+
+- Removes unecessary verbosity.
+- Increases the generated API document's clarity and readability.
+- Generates consistent, proper markdown.
 
 </details>
+
+## Contributing
+
+Plase feel free to submit any [bug reports or feature suggestions](https://github.com/liquid-labs/dmd-readme-api/issues). You're also welcome to submit patches of course. We don't have any real insturctions, but you can post questions on [our discord channel](https://discord.gg/QWAav6fZ5C). It's not monitored 24/7, but you shoudl hear back from us by next business day generally.
+
+## Support
+
+The best way to get free support is to [submit a ticket](https://github.com/liquid-labs/dmd-readme-api/issues). You can also become a patron for as little as $1/month to get priority support and input into new feature priorities on [all Liquid Labs open source software](https://github.com/liquid-labs) by becoming a [supporting our work at patreon.com/zanecodes](https://www.patreon.com/zanecodes).
