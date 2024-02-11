@@ -14,15 +14,30 @@ function extractSourceLink() {
 
 function extractSummary(description) {
   // No idea why, but the 'm' (multiline match) doesn't seem to be working...
-  return description.match(/([^.]+\.)(?:.|\n)*/m)[1] || description
+  const match = description.match(/([^.!?]+[.?!])(?:.|\n)*/m)
+  return (match && match[1]) || description
 }
 
 function and() {
-  return Array.prototype.every.call(arguments, Boolean);
+  const testInput = logicHelper(arguments)
+  if (testInput === false) { return false }
+  // else
+  return testInput.every(Boolean)
 }
 
 function or() {
-  return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+  const testInput = logicHelper(arguments)
+  if (testInput === false) { return false }
+  // else
+  return testInput.some(Boolean)
+}
+
+// Helper fenctions
+const logicHelper = (argsArray) => {
+  // we cut out the last arg because it's the implicit 'options' arg, which isn't really part of the input
+  const testInput = [...argsArray].slice(0, -1)
+  if (testInput.length === 0) { return false }
+  return testInput
 }
 
 exports.extractSourceLink = extractSourceLink
