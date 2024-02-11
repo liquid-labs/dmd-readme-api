@@ -14,7 +14,8 @@ function extractSourceLink() {
 
 function extractSummary(description) {
   // No idea why, but the 'm' (multiline match) doesn't seem to be working...
-  return description.match(/([^.]+\.)(?:.|\n)*/m)[1] || description
+  const match = description.match(/([^.!?]+[.?!])(?:.|\n)*/m)
+  return (match && match[1]) || description
 }
 
 function and() {
@@ -22,6 +23,7 @@ function and() {
 }
 
 function or() {
+  // we cut out the last arg because it's the implicit 'options' arg, which isn't really part of the input
   return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
 }
 
