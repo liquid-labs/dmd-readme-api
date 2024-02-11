@@ -5,6 +5,8 @@
   "scripts": {
     "build": "",
     "test": "make test",
+    "prepack": "make build",
+    "preversion": "make qa",
     "qa": "make qa"
   },
   "keywords": [
