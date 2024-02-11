@@ -5,7 +5,7 @@ const {
   extractSummary,
   and,
   or
-} = require('../helpers')
+} = require('../../helpers/helpers')
 
 const myDir = __dirname
 
@@ -20,7 +20,7 @@ const jsdocDataEntry = {
 describe('extractSourceLink', () => {
   test('extracts relative source from absolute meta source', () => {
     const result = extractSourceLink.call(jsdocDataEntry)
-    expect(result).toBe('./helpers/test/foo.js#L5')
+    expect(result).toBe('./test/helpers/foo.js#L5')
   })
 })
 

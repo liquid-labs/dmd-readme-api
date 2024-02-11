@@ -1,4 +1,4 @@
-const { handledKinds, hasMultipleKinds, sortAll } = require('../ddata')
+const { handledKinds, hasMultipleKinds, sortAll } = require('../../helpers/ddata')
 
 const multiKinds = [
   { kind: 'function', name: 'aFunction' },
