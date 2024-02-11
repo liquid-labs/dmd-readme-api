@@ -11,6 +11,15 @@ const singleKind = [
   { kind: 'constant', name: 'aConstant' }
 ]
 
+describe('handledKinds', () => {
+  test('returns an array of strings', () => {
+    const result = handledKinds()
+    expect(Array.isArray(result)).toBe(true)
+    expect(result.some(({ kind, title }) => 
+      typeof kind !== 'string') && typeof title !== 'string').toBe(false)
+  })
+})
+
 describe('hasMultipleKinds', () => {
   test('recognizes multiple kinds', () => expect(hasMultipleKinds(multiKinds)).toBe(true))
 
