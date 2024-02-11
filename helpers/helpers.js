@@ -19,12 +19,25 @@ function extractSummary(description) {
 }
 
 function and() {
-  return Array.prototype.every.call(arguments, Boolean);
+  const testInput = logicHelper(arguments)
+  if (testInput === false) { return false }
+  // else
+  return testInput.every(Boolean);
 }
 
 function or() {
+  const testInput = logicHelper(arguments)
+  if (testInput === false) { return false }
+  // else
+  return testInput.some(Boolean);
+}
+
+// Helper fenctions
+const logicHelper = (argsArray) => {
   // we cut out the last arg because it's the implicit 'options' arg, which isn't really part of the input
-  return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+  const testInput = [...argsArray].slice(0, -1)
+  if (testInput.length === 0) { return false }
+  return testInput
 }
 
 exports.extractSourceLink = extractSourceLink
