@@ -62,8 +62,10 @@ $(DRA_COVERAGE_REPORTS): $(DRA_TEST_PASS_MARKER) ./coverage
 
 test: $(TEST_TARGETS)
 
+qa: test
+
 all: build
 
 .DEFAULT_GOAL:=build
 
-.PHONY: all build test
+.PHONY: all build qa test

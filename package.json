@@ -4,7 +4,8 @@
   "description": "A jsdoc2md template plugin generating elegant, compact one-page APIs in markdown, suitable for embedding in a README.md.",
   "scripts": {
     "build": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test",
+    "qa": "make qa"
   },
   "keywords": [
     "api",
