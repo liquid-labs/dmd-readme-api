@@ -55,13 +55,51 @@ $(DRA_COVERAGE_REPORTS): $(DRA_TEST_PASS_MARKER) ./coverage
 	mkdir -p $(DRA_COVERAGE_REPORTS)
 	cp -r ./coverage/* $(DRA_COVERAGE_REPORTS)
 
+test: $(TEST_TARGETS)
+
 #####
 # end test
 #####
 
-test: $(TEST_TARGETS)
+#####
+# lint rules
+#####
 
-qa: test
+ESLINT:=npx eslint
+LINT_REPORT:=$(QA)/lint.txt
+LINT_PASS_MARKER:=$(QA)/.lint.passed
+PRECIOUS_TARGETS+=$(LINT_REPORT)
+
+LINT_TARGETS+=$(LINT_REPORT) $(LINT_PASS_MARKER)
+
+LINT_IGNORE_PATTERNS:=--ignore-pattern '$(DIST)/**/*'
+
+$(LINT_REPORT) $(LINT_PASS_MARKER) &: $(ALL_JS_FILES_SRC)
+	mkdir -p $(dir $@)
+	echo -n 'Test git rev: ' > $(LINT_REPORT)
+	git rev-parse HEAD >> $(LINT_REPORT)
+	( set -e; set -o pipefail; \
+	  $(ESLINT) \
+	    --ext .cjs,.js,.mjs,.cjs,.xjs \
+	    $(LINT_IGNORE_PATTERNS) \
+	    . \
+	    | tee -a $(LINT_REPORT); \
+	  touch $(LINT_PASS_MARKER) )
+
+lint-fix:
+	@( set -e; set -o pipefail; \
+	  $(ESLINT) \
+	    --ext .js,.mjs,.cjs,.xjs \
+	    $(LINT_IGNORE_PATTERNS) \
+	    --fix . )
+
+lint: $(LINT_TARGETS)
+
+#####
+# end lint
+#####
+
+qa: test lint
 
 all: build
 

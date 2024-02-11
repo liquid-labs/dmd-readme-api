@@ -1,6 +1,7 @@
+/* global describe expect test */
 const join = require('node:path').join
 
-const { 
+const {
   extractSourceLink,
   extractSummary,
   and,
@@ -10,10 +11,10 @@ const {
 const myDir = __dirname
 
 const jsdocDataEntry = {
-  meta: {
-    filename: 'foo.js',
-    path: join(myDir),
-    lineno: 5
+  meta : {
+    filename : 'foo.js',
+    path     : join(myDir),
+    lineno   : 5
   }
 }
 
@@ -48,7 +49,7 @@ describe('and', () => {
     ['false on second false', [true, false, {}], false],
     ['false on secord empty string', [true, '', {}], false],
     ['false on all false-ish', [false, '', 0, {}], false]
-  ])('%s', (description, input, expected) => 
+  ])('%s', (description, input, expected) =>
     expect(and(...input)).toBe(expected))
 })
 
@@ -64,6 +65,6 @@ describe('or', () => {
     ['true on second true', [false, true, {}], true],
     ['true on secord truthy string', [false, 'hi', {}], true],
     ['false on all false-ish', [false, '', 0, {}], false]
-  ])('%s', (description, input, expected) => 
+  ])('%s', (description, input, expected) =>
     expect(or(...input)).toBe(expected))
 })

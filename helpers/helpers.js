@@ -22,14 +22,14 @@ function and() {
   const testInput = logicHelper(arguments)
   if (testInput === false) { return false }
   // else
-  return testInput.every(Boolean);
+  return testInput.every(Boolean)
 }
 
 function or() {
   const testInput = logicHelper(arguments)
   if (testInput === false) { return false }
   // else
-  return testInput.some(Boolean);
+  return testInput.some(Boolean)
 }
 
 // Helper fenctions

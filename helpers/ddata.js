@@ -1,15 +1,15 @@
 const _handledKinds = [
-  { kind: 'class', title: 'Classes' },
-  { kind: 'mixin', title: 'Mixins' },
-  { kind: 'member', title: 'Members' },
-  { kind: 'namespace', title: 'Namespaces' },
-  { kind: 'constant', title: 'Constants' },
-  { kind: 'component', title: 'Components' },
-  { kind: 'function', title: 'Functions' },
-  { kind: 'event', title: 'Events' },
-  { kind: 'typedef', title: 'Typedefs' },
-  { kind: 'external', title: 'Externals' },
-  { kind: 'interface', interface: 'Interfaces' }
+  { kind : 'class', title : 'Classes' },
+  { kind : 'mixin', title : 'Mixins' },
+  { kind : 'member', title : 'Members' },
+  { kind : 'namespace', title : 'Namespaces' },
+  { kind : 'constant', title : 'Constants' },
+  { kind : 'component', title : 'Components' },
+  { kind : 'function', title : 'Functions' },
+  { kind : 'event', title : 'Events' },
+  { kind : 'typedef', title : 'Typedefs' },
+  { kind : 'external', title : 'Externals' },
+  { kind : 'interface', interface : 'Interfaces' }
 ]
 
 function handledKinds() { return _handledKinds }
