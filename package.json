@@ -4,6 +4,7 @@
   "description": "A jsdoc2md template plugin generating elegant, compact one-page APIs in markdown, suitable for embedding in a README.md.",
   "main": "dist/dmd-readme-api.js",
   "scripts": {
+    "build": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -28,5 +29,8 @@
   },
   "_comply": {
     "orgKey": "@liquid-labs"
+  },
+  "devDependencies": {
+    "@liquid-labs/sdlc-resource-jest": "^1.0.0-alpha.6"
   }
 }
