@@ -36,7 +36,6 @@ TEST_TARGETS+=$(DRA_TEST_REPORT) $(DRA_TEST_PASS_MARKER) $(DRA_COVERAGE_REPORTS)
 PRECIOUS_TARGETS+=$(DRA_TEST_REPORT)
 
 $(DRA_TEST_PASS_MARKER) $(DRA_TEST_REPORT) ./coverage &: package.json $(DRA_ALL_JS_FILES_SRC) $(DRA_TEST_DATA_SRC)
-	rm -rf $@
 	mkdir -p $(dir $@)
 	echo -n 'Test git rev: ' > $(DRA_TEST_REPORT)
 	git rev-parse HEAD >> $(DRA_TEST_REPORT)
