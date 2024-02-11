@@ -1,5 +1,3 @@
-var handlebars = require('handlebars')
-
 const _handledKinds = [
   { kind: 'class', title: 'Classes' },
   { kind: 'mixin', title: 'Mixins' },
