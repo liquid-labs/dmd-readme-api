@@ -68,7 +68,7 @@ npx jsdoc2md \
 
 ## Examples
 
-- [react-window-context](https://github.com/liquid-labs/react-window-context) [API section](https://github.com/liquid-labs/react-window-context#apai-reference)
+- [react-window-context](https://github.com/liquid-labs/react-window-context) [API section](https://github.com/liquid-labs/react-window-context#api-reference)
 
 ## History
 
