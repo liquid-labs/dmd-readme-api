@@ -112,3 +112,83 @@ describe('template', () => {
     test('documents the function', () => expect(output).toMatch(/a function/m))
   })
 })
+
+describe('realistic class documentation', () => {
+  const data = [
+    {
+      id          : 'InvalidArgumentError()',
+      longname    : 'InvalidArgumentError',
+      name        : 'InvalidArgumentError',
+      kind        : 'constructor',
+      description : 'The `InvalidArgumentError` constructor.',
+      memberof    : 'InvalidArgumentError',
+      params      : [
+        {
+          type : {
+            names : [
+              'string',
+              'InvalidArgumentOptions',
+              'undefined'
+            ]
+          },
+          description : 'The package name, a \n  [`InvalidArgumentOptions`](#InvalidArgumentOptions) object, or undefined (which will omit the package name from \n  the message unless specified in a final options argument).',
+          name        : 'packageNameOrOptions'
+        },
+        {
+          type : {
+            names : [
+              'InvalidArgumentOptions',
+              'undefined'
+            ]
+          },
+          description : 'The final options `Object`, if any, which is passed to the `Error` \n  super-constructor and whose values can override the positional arguments.',
+          name        : 'options'
+        }
+      ],
+      order : 2
+    },
+    {
+      id          : 'InvalidArgumentError',
+      longname    : 'InvalidArgumentError',
+      name        : 'InvalidArgumentError',
+      kind        : 'class',
+      scope       : 'global',
+      description : 'A class!',
+      meta        : {
+        lineno   : 52,
+        filename : 'zoa6cwksxi6tdg5yl4xuw.js',
+        path     : '/var/folders/b_/cqvmw4wd3p97n3h4qh85kb1c0000gp/T'
+      },
+      order : 1
+    },
+    {
+      id          : 'InvalidArgumentOptions',
+      longname    : 'InvalidArgumentOptions',
+      name        : 'InvalidArgumentOptions',
+      kind        : 'typedef',
+      scope       : 'global',
+      description : 'The arguments option for `InvalidArgumentError`. These options are also passed to the `Error` constructor, which may \nrecognize additional options.',
+      properties  : [
+        {
+          type : {
+            names : [
+              'string'
+            ]
+          },
+          description : 'The name of the function to use in any generated message.',
+          name        : 'functionName'
+        }
+      ],
+      meta : {
+        lineno   : 6,
+        filename : 'zoa6cwksxi6tdg5yl4xuw.js',
+        path     : '/var/folders/b_/cqvmw4wd3p97n3h4qh85kb1c0000gp/T'
+      },
+      order : 0
+    }]
+
+  const output = dmd(data, { plugin : pluginPath, noCache : true, 'global-index-format' : 'list' })
+  console.log(output)
+
+  test('links parameters to defined type', () => expect(output).toMatch(/\\\| \[`InvalidArgumentOptions`\]\(#InvalidArgumentOptions\) \\\|/m))
+})
