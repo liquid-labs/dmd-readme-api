@@ -60,7 +60,7 @@ npx jsdoc2md \
 <details>
   <summary>The above examples should get you started and my "just work" in many cases. Expand this section for additional details..</summary>
 
-- The 'template' settings aren't really effective yet, but we'll implement them in the template soon if there's a demand. (I belivee it may take a chance to jsdoc2md, but need to look into it more.) Also, again, you don't need to specify the plugin in both places.
+- The 'template' settings aren't really effective yet, but we'll implement them in the template soon if there's a demand. (I believe it may take a chance to jsdoc2md, but need to look into it more.) Also, again, you don't need to specify the plugin in both places.
 - You probably don't need to worry about the 'sourceType' or tags' sections. You can almost always leave them as is.
 - Refer [jsdoc2markdown](https://github.com/jsdoc2md/jsdoc-to-markdown) for details on the `jsdoc.config.json` file. It's basically where you configure where to read the files and, optionally, register the plugin.
 
