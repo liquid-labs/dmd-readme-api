@@ -1,6 +1,10 @@
 const cwd = process.cwd()
 
 function extractSourceLink() {
+  if (this.meta === undefined) {
+    return ''
+  }
+
   const meta = this.meta
   const filename = meta.filename
   const path = meta.path
