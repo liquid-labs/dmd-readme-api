@@ -1,0 +1,72 @@
+-n Test git rev: 
+3ed3fcb411f41fd9bfac22c35f2c7794059deef5
+PASS test/partial/template.test.js
+  ● Console
+
+    console.log
+      
+      ##  API Reference
+      _API generated with [dmd-readme-api](https://www.npmjs.com/package/dmd-readme-api)._
+      
+      - Classes:
+        - [InvalidArgumentError](#InvalidArgumentError): A class!
+      - Typedefs:
+        - [InvalidArgumentOptions](#InvalidArgumentOptions): The arguments option for `InvalidArgumentError`.
+      
+      <a id="InvalidArgumentError"></a>
+      ### InvalidArgumentError
+      
+      A class!
+      
+      
+      [**Source code**](.b1c0000gp/T/zoa6cwksxi6tdg5yl4xuw.js#L52)
+      
+      
+      <a id="new_InvalidArgumentError_new"></a>
+      #### new InvalidArgumentError(packageNameOrOptions, options)
+      
+      The `InvalidArgumentError` constructor.
+      
+      
+      | Param | Type | Description |
+      | --- | --- | --- |
+      | packageNameOrOptions | `string` \| [`InvalidArgumentOptions`](#InvalidArgumentOptions) \| `undefined` | The package name, a    [`InvalidArgumentOptions`](#InvalidArgumentOptions) object, or undefined (which will omit the package name from    the message unless specified in a final options argument). |
+      | options | [`InvalidArgumentOptions`](#InvalidArgumentOptions) \| `undefined` | The final options `Object`, if any, which is passed to the `Error`    super-constructor and whose values can override the positional arguments. |
+      
+      
+      
+      <a id="InvalidArgumentOptions"></a>
+      ### InvalidArgumentOptions
+      
+      The arguments option for `InvalidArgumentError`. These options are also passed to the `Error` constructor, which may 
+      recognize additional options.
+      
+      
+      **Properties**
+      
+      | Name | Type | Description |
+      | --- | --- | --- |
+      | functionName | `string` | The name of the function to use in any generated message. |
+      
+      [**Source code**](.b1c0000gp/T/zoa6cwksxi6tdg5yl4xuw.js#L6)
+
+      at log (test/partial/template.test.js:191:11)
+
+PASS test/helpers/helpers.test.js
+PASS test/helpers/ddata.test.js
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |   93.75 |    93.33 |     100 |    92.3 |                   
+ dmd-readme-api         |       0 |      100 |     100 |       0 |                   
+  .eslintrc.js          |       0 |      100 |     100 |       0 | 1-60              
+ dmd-readme-api/helpers |   97.82 |    93.33 |     100 |   97.29 |                   
+  ddata.js              |     100 |      100 |     100 |     100 |                   
+  helpers.js            |   96.42 |     90.9 |     100 |      96 | 5                 
+------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       39 passed, 39 total
+Snapshots:   0 total
+Time:        0.354 s, estimated 1 s
+Ran all test suites.
