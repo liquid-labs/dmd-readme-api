@@ -4,6 +4,7 @@ A [jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) template plugin gene
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 - [Examples](#examples)
 - [History](#history])
 - [Contributing](#contributing)
@@ -23,13 +24,17 @@ npx jsdoc2md \
     --files 'src/**/*' \
     --global-index-format list \
     --name-format \
-    --plugin dmd-readme-api
+    --plugin dmd-readme-api \
+    --no-cache
 ```
 
 <details>
-  <summary>You can leave off the `--plugin` if it's specified in the `jsdoc.config.json` file. Expand this section for furthe details.</summary>
+  <summary>You must specify `--plugin` even if it's specified in the `jsdoc.config.json` file. Expand this section for further details.</summary>
 
-- The `--global-index-format list` bit is important, it's what the template was designed to use and we don't fully support the 'table', 'grouped', or 'dl' formats yet. You're free to try them, but results are not guaranteed.
+- The `--global-index-format grouped` will use 
+
+
+bit is important, it's what the template was designed to use and we don't fully support the 'table', 'grouped', or 'dl' formats yet. You're free to try them, but results are not guaranteed.
 - You don't need to specify the plugin on both the CLI and in the config file (see below).
 - You do need the `--files 'path/to/src/**'` bit, even though you also (and really must) specify the 'source' in the config file as well. jsdoc2md and jsdoc don't seem to be fully integrated at this point.
 - Same with `--name-format`. It's part of the style and is recommended, but can only be set on the command line at this time.
@@ -66,19 +71,31 @@ npx jsdoc2md \
 
 </details>
 
+## Features
+
+(As compared to the base [dmd](https://github.com/jsdoc2md/dmd) template.)
+
+- Only display summary (first line) of documentation in the index and show full documentation in the linked entry. (This makes thins _a lot_ more compact.)
+- Added sorting of the underlying data so everything is displayed in a consistent order.
+- Adds support for simple list of global identifiers (set `--global-index-format list`).
+- Add links to the source code where an identifier is defined.
+- Fixes all `<code>` and uses Markdown native backtick instead.
+- Uses compact method signatures in any index; much easier to read.
+- Render `@throws` on one line if only one `@throws` defined, otherwise generate list.
+- Makes the 'Examples' section more compact.
+- Only display identifier 'kind' when it's complex; otherwise it's obvious based on the section.
+
 ## Examples
 
 - [react-window-context](https://github.com/liquid-labs/react-window-context) [API section](https://github.com/liquid-labs/react-window-context#api-reference)
+- [regex-repo](https://github.com/liquid-labs/regex-repo) [regex reference](https://github.com/liquid-labs/regex-repo#regex-reference)
 
 ## History
 
 <details>
-  <summary>We wanted good API documentation and a live demo and tried a lot of different ways to get there.</summary>
+  <summary>We wanted good, compact API documentation and tried a lot of different ways to get there.</summary>
 
-We wanted to accomplish two main goals:
-
-1) Embed an API in our `README.md` and update it automatically.
-2) Provide a live demo.
+Our main goal was to embed an easy to read, automatically generated API in our `README.md` files.
 
 Our first thought, after some research, was to use [Docusaurus](https://docusaurus.io/), hosted on GitHub. We found [this script](https://gist.github.com/slorber/0bf8c8c8001505f0f99a062ac55bf442) and, even more promising, [this library](https://naver.github.io/jsdoc-to-mdx/docs/setting-up-docusaurus/), which seemed to be exactly what we wanted because Docusaurus supports rendering React components and the script and library promised to generate API documentation as a Docusaurus doc.
 
@@ -86,7 +103,7 @@ Unfortunately, neither worked out. The script has a lot of assumptions and the l
 
 [^1]:as of 2024-02-09
 
-We instead turned to tackling the goals in two steps. The first step was rendering the jsdocs in markdown and appending those to a simple template. We'l then use [CodePen](https://codepen.io) or something to host a live demo.
+We instead turned to tackling the goals in two steps. The first step was rendering the jsdocs in markdown and appending those to a simple template.
 
 So, the way jsdocs works is gather's all the doc information into JSON data. The data representing the parsed jsdocs is passed through a templating system to generate the output. We tried many different templates, expecting to find one that worked off the shelf.
 
@@ -102,13 +119,7 @@ But one nice thing about jsdoc2md is it's "relatively" easy to customize. You ha
 
 So, anyway, there's a template system called dmd which process [handlebarjs](https://handlebarsjs.com/) and jsdoc2md uses, [dmd](https://github.com/jsdoc2md/dmd) and you can make little template partials to override snippets of their template. So that's what we did, and that's what this library is.
 
-We tried to cleanup a lot of things in template. You can see the full list of modifications in the [`DEV_NOTES.md`](./DEV_NOTES.md). In summmary, though, we believe our template:
-
-- Removes unecessary verbosity.
-- Increases the generated API document's clarity and readability.
-- Generates consistent, proper markdown.
-
-The result is a templaet that, when used jsdoc2md, creates nice, relatively compact Markdown you can attach right ot your `README.md`.
+We tried to cleanup a lot of things in template. You can see the full list of modifications in the [`DEV_NOTES.md`](./DEV_NOTES.md). The result is a template that, when used jsdoc2md, creates nice, relatively compact Markdown you can attach right to your `README.md`.
 
 </details>
 
