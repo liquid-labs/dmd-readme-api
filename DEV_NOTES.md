@@ -12,4 +12,5 @@ Stuff we fix vs. the standard [JSDoc DMD](https://github.com/jsdoc2md/dmd):
 - Added support for `@kind component` as a distinct kind of thing.
 - Simplified the [`global-index.hbs`](./partial/main-index/global-index/global-index.hbs) to key off the `kinds()` array from [`ddata.js`](./helpers/ddata.js).
 - Fixed problem in [`sig-name.hbs`](./partial/shared/signature/sig-name.hbs) where it was unecessarily escaping names even when inside tick-quotes.
+- Added configurable document title.
 - Fixed problem where return types with Arrays was escaping the `<>` chars.
