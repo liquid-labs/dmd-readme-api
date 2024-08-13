@@ -1,6 +1,10 @@
-{{#examples}}
-**Example**{{#if caption}} *({{caption}})*  {{else}}  {{/if}}
+{{#if examples~}}
+**Example{{#if (gt examples.length 1)}}s{{/if}}**:
+{{#examples~}}
+{{#if caption}}*{{caption}}*:
+{{/if}}
 {{{inlineLinks example}}}
 {{/examples}}
 
-{{! this is necessary so the editor doesn't chomp our section separation }}
+{{! this space is necessary so the editor doesn't chomp our section separation }}
+{{/if}}
