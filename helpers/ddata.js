@@ -26,10 +26,10 @@ function sortAll(sortFields, options) {
     if (indexAKind < indexBKind) { return -1 }
     else if (indexAKind > indexBKind) { return 1 }
     else {
-      const aSortFields = sortFields.map(function (sortField) {
+      const aSortFields = sortFields.map(function(sortField) {
         return a[sortField]
       })
-      const bSortFields = sortFields.map(function (sortField) {
+      const bSortFields = sortFields.map(function(sortField) {
         return b[sortField]
       })
       for (let i = 0; i < sortFields.length; i += 1) {
