@@ -5,6 +5,7 @@ A [jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) template plugin gene
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [Formatting ptions](#formatting-options)
 - [Examples](#examples)
 - [History](#history])
 - [Contributing](#contributing)
@@ -28,18 +29,7 @@ npx jsdoc2md \
     --no-cache
 ```
 
-<details>
-  <summary>You must specify `--plugin` even if it's specified in the `jsdoc.config.json` file. Expand this section for further details.</summary>
-
-- The `--global-index-format grouped` will use 
-
-
-bit is important, it's what the template was designed to use and we don't fully support the 'table', 'grouped', or 'dl' formats yet. You're free to try them, but results are not guaranteed.
-- You don't need to specify the plugin on both the CLI and in the config file (see below).
-- You do need the `--files 'path/to/src/**'` bit, even though you also (and really must) specify the 'source' in the config file as well. jsdoc2md and jsdoc don't seem to be fully integrated at this point.
-- Same with `--name-format`. It's part of the style and is recommended, but can only be set on the command line at this time.
-
-</details>
+You must specify `--plugin` even if it's specified in the `jsdoc.config.json` See below for further details on plugin and `jsdoc.config.json` setting and refer to the [formatting options](#formatting-options) section for additional options.
 
 `jsdoc.config.json`:
 ```json
@@ -56,20 +46,19 @@ bit is important, it's what the template was designed to use and we don't fully 
         "dictionaries": ["jsdoc","closure"]
     },
     "templates": {
-        "cleverLinks": true,
-        "monospaceLinks": true
+        "cleverLinks": false,
+        "monospaceLinks": false
     }
 }
 ```
 
-<details>
-  <summary>The above examples should get you started and my "just work" in many cases. Expand this section for additional details..</summary>
+Note that jsdoc2md doesn't do anything with this file. It's passed through to `jsdoc`. Some important notes:
 
-- The 'template' settings aren't really effective yet, but we'll implement them in the template soon if there's a demand. (I believe it may take a chance to jsdoc2md, but need to look into it more.) Also, again, you don't need to specify the plugin in both places.
-- You probably don't need to worry about the 'sourceType' or tags' sections. You can almost always leave them as is.
-- Refer [jsdoc2markdown](https://github.com/jsdoc2md/jsdoc-to-markdown) for details on the `jsdoc.config.json` file. It's basically where you configure where to read the files and, optionally, register the plugin.
-
-</details>
+- jsdoc2md and jsdoc don't seem to be fully integrated at this point; the 'plugins' here is ignored by jsdoc2md.
+- You need to `tags.allowUnknownTags` `true` or you won't get support for the handy jsdoc2md `@category` tag (and a few others).
+- If you want to pick up `.mjs` and `.cjs` files, you must override `source.encludePattern`. How this works is that jsdoc2md will read in everything matched by the `--files` (or `"files"` in `.jsdoc2md.config.json`) and then apply the include and exclude patterns defined in `jsdoc.config.json`.
+- The `templates` are effectively ignored currently and are shown here with their default values.
+- The `no-cache` avoids erroneously using previous renderings even when settings have changed. Rendering is fast enough that it's not really worthwhile to have the cache enabled as it can cause problems.
 
 ## Features
 
@@ -77,6 +66,7 @@ bit is important, it's what the template was designed to use and we don't fully 
 
 - Only display summary (first line) of documentation in the index and show full documentation in the linked entry. (This makes thins _a lot_ more compact.)
 - Added sorting of the underlying data so everything is displayed in a consistent order.
+- Adds configurable section title to main output; see [document option](#document-option).
 - Adds support for simple list of global identifiers (set `--global-index-format list`).
 - Add links to the source code where an identifier is defined.
 - Fixes all `<code>` and uses Markdown native backtick instead.
@@ -84,6 +74,57 @@ bit is important, it's what the template was designed to use and we don't fully 
 - Render `@throws` on one line if only one `@throws` defined, otherwise generate list.
 - Makes the 'Examples' section more compact.
 - Only display identifier 'kind' when it's complex; otherwise it's obvious based on the section.
+
+## Formatting options
+
+Note, some options can be set via the command line and via `.jsdoc2md.json` while others can only be set via the `.jsdoc2md.json` configuration file (placed in the project root).
+
+### Document title
+
+- By default, the generated document will have a title 'API reference'.
+- You can override this by setting "title" in the `.jsdoc2md.json` configuration file (cannot be set via command line options).
+- Setting the "title" option to literal `false` will suppress the title altogether. This is useful when you have a custom introduction to the API section and you want the API documentation to flow into it. Note that the heading depth is unaffected by this option.
+
+### Heading depth
+
+- The default depth of the title header is '2' (e.g., '##').
+- You can change this by setting `heading-depth` in the `.jsdoc2md.json` configuration file or with `--heading-depth` on the CLI.
+
+### Github flavored markdown
+
+- By default, [dmd](https://github.com/jsdoc2md/dmd) generated GitHub flavored markdown.
+- If this is a problem, you can set `no-gfm` `true` in the `.jsdoc2md.config.json` or use the `--no-gfm` command line option.
+
+### Global index format
+
+- Controls how the display of the global identifiers index. The default index format is `dl`, which can be pretty bulky.
+- This DMD adds support for `list` format. Other options are `dl`, `table`, and `grouped` (not currently supported).
+- This option can be set with `global-index-format` in the `.jsdoc2md.json` configuration file or with `--global-index-format` on the CLI.
+
+### Member index format
+
+- Controls how the member identifiers index (of a `@module` or `@namespace` for example) is displayed. Default is `grouped`.
+- May be set using `member-index-format` in `.jsdoc2md.config.js` or with `--member-index-format` on the command line. Can be `grouped` or `list`.
+
+### Module index format
+
+- Controls how module identifier indexes are displayed; `dl` by default.
+- Can be set with `module-index-format` in the `.jsdoc2md.config.json` file or with the `--module-index-format` option on the command line. Supports `none`, `grouped`, `table`, and `dl`.
+
+### Name format
+
+- By default, identifier names are rendered in plain case. 
+- You almost certainly want to override this and set `name-format` in the `.jsdoc2md.config.json` file to `true` or include the `--name-format` option on the CLI. This will cause identifier names to render in monospace. (e.g., `foo`).
+
+### Parameter list format
+
+- Controls how function parameters are displayed; `table` by default.
+- Can be set with `param-list-format` in the `.jsdoc2md.config.json` file or with the `--param-list-format` option on the CLI. Support `table` and `list`.
+
+### Private identifiers
+
+- Controls the display of identifiers marked `@private`; by default they are hidden.
+- Can be set with `private` in `.jsdoc2md.config.json` (`true` or `false`, the default) or with the `--private` option on the CLI.
 
 ## Examples
 
