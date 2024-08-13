@@ -188,7 +188,6 @@ describe('realistic class documentation', () => {
     }]
 
   const output = dmd(data, { plugin : pluginPath, noCache : true, 'global-index-format' : 'list' })
-  console.log(output)
 
   test('links parameters to defined type', () => expect(output).toMatch(/\\\| \[`InvalidArgumentOptions`\]\(#InvalidArgumentOptions\) \\\|/m))
 })
