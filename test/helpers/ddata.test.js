@@ -34,9 +34,12 @@ describe('hasMultipleKinds', () => {
 })
 
 describe('sortAll', () => {
+  const sortFields = ['scope', 'category']
+
   test('sorts set with single kind', () => {
-    const data = structuredClone({ data : { root : singleKind } })
-    sortAll(data)
+    const data =
+      structuredClone({ data : { root : singleKind } })
+    sortAll(sortFields, data)
     const sortedSet = data.data.root
     expect(sortedSet).toHaveLength(2)
     expect(sortedSet[0].name).toBe('aConstant')
@@ -44,7 +47,7 @@ describe('sortAll', () => {
 
   test('sorts set with multiple kinds', () => {
     const data = structuredClone({ data : { root : multiKinds } })
-    sortAll(data)
+    sortAll(sortFields, data)
     const sortedSet = data.data.root
     expect(sortedSet).toHaveLength(3)
     expect(sortedSet[0].name).toBe('aConstant')
@@ -53,7 +56,7 @@ describe('sortAll', () => {
 
   test('no change when set in order', () => {
     const data = structuredClone({ data : { root : inOrderKinds } })
-    sortAll(data)
+    sortAll(sortFields, data)
     const sortedSet = data.data.root
     expect(sortedSet).toEqual(inOrderKinds)
   })

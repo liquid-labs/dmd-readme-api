@@ -18,14 +18,29 @@ function hasMultipleKinds(globals) {
   return Object.keys(globals.reduce((acc, g) => { acc[g.kind] = true; return acc }, {})).length > 1
 }
 
-function sortAll(options) {
+function sortAll(sortFields, options) {
   options.data.root.sort((a, b) => {
     const indexAKind = _handledKinds.findIndex((k) => k.kind === a.kind)
     const indexBKind = _handledKinds.findIndex((k) => k.kind === b.kind)
 
     if (indexAKind < indexBKind) { return -1 }
     else if (indexAKind > indexBKind) { return 1 }
-    else { return a.name.localeCompare(b.name) }
+    else {
+      const aSortFields = sortFields.map(function (sortField) {
+        return a[sortField]
+      })
+      const bSortFields = sortFields.map(function (sortField) {
+        return b[sortField]
+      })
+      for (let i = 0; i < sortFields.length; i += 1) {
+        const fieldA = aSortFields[i]
+        const fieldB = bSortFields[i]
+        if (fieldA !== fieldB) {
+          return fieldA.localeCompare(fieldB)
+        }
+      }
+      return a.name.localeCompare(b.name)
+    }
   })
 }
 
