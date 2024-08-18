@@ -42,15 +42,15 @@ describe('and', () => {
     // last input is the implicit 'options' (should be ignored)
     ['false on empty', [{}], false],
     ['true on single true', [true, {}], true],
-    ['true on truthy string', ['hi!', {}], true],
+    ['true on truthy string', ['hi!', {}], 'hi!'],
     ['false on single false', [false, {}], false],
-    ['false on single empty string', ['', {}], false],
-    ['true on multiple truthy', [true, 'hi', [], {}], true],
+    ['false on single empty string', ['', {}], ''],
+    ['true on multiple truthy', [true, 'hi', [], {}], []],
     ['false on second false', [true, false, {}], false],
-    ['false on secord empty string', [true, '', {}], false],
+    ['false on secord empty string', [true, '', {}], ''],
     ['false on all false-ish', [false, '', 0, {}], false]
   ])('%s', (description, input, expected) =>
-    expect(and(...input)).toBe(expected))
+    expect(and(...input)).toEqual(expected))
 })
 
 describe('or', () => {
@@ -58,13 +58,13 @@ describe('or', () => {
     // last input is the implicit 'options' (should be ignored)
     ['false on empty', [{}], false],
     ['true on single true', [true, {}], true],
-    ['true on truthy string', ['hi!', {}], true],
+    ['true on truthy string', ['hi!', {}], 'hi!'],
     ['false on single false', [false, {}], false],
-    ['false on single empty string', ['', {}], false],
+    ['false on single empty string', ['', {}], ''],
     ['true on multiple truthy', [true, 'hi', [], {}], true],
     ['true on second true', [false, true, {}], true],
-    ['true on secord truthy string', [false, 'hi', {}], true],
-    ['false on all false-ish', [false, '', 0, {}], false]
+    ['true on secord truthy string', [false, 'hi', {}], 'hi'],
+    ['false on all false-ish', [false, '', 0, {}], 0]
   ])('%s', (description, input, expected) =>
-    expect(or(...input)).toBe(expected))
+    expect(or(...input)).toEqual(expected))
 })
