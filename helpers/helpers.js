@@ -58,4 +58,4 @@ exports.gt = (a, b) => a > b
 exports.gte = (a, b) => a >= b
 exports.lt = (a, b) => a < b
 exports.lte = (a, b) => a <= b
-exports.match = (value, regex) =>  new RegExp(regex).test(value)
+exports.match = (value, regex) => new RegExp(regex).test(value)
