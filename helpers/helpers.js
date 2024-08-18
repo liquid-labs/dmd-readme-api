@@ -26,14 +26,20 @@ function and() {
   const testInput = logicHelper(arguments)
   if (testInput === false) { return false }
   // else
-  return testInput.every(Boolean)
+  return testInput.reduce((result, input) => {
+    if (!result) { return result }
+    else { return input }
+  }, true)
 }
 
 function or() {
   const testInput = logicHelper(arguments)
   if (testInput === false) { return false }
   // else
-  return testInput.some(Boolean)
+  return testInput.reduce((result, input) => {
+    if (result) { return result }
+    else { return input }
+  }, false)
 }
 
 // Helper fenctions
@@ -52,3 +58,4 @@ exports.gt = (a, b) => a > b
 exports.gte = (a, b) => a >= b
 exports.lt = (a, b) => a < b
 exports.lte = (a, b) => a <= b
+exports.match = (value, regex) => new RegExp(regex).test(value)
