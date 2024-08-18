@@ -20,27 +20,28 @@ function hasMultipleKinds(globals) {
 
 function sortAll(sortFields, options) {
   options.data.root.sort((a, b) => {
+    sortFields = [...sortFields, 'kind']
     const indexAKind = _handledKinds.findIndex((k) => k.kind === a.kind)
     const indexBKind = _handledKinds.findIndex((k) => k.kind === b.kind)
 
+    const aSortFields = sortFields.map(function(sortField) {
+      return a[sortField]
+    })
+    const bSortFields = sortFields.map(function(sortField) {
+      return b[sortField]
+    })
+    for (let i = 0; i < sortFields.length; i += 1) {
+      const fieldA = aSortFields[i]
+      const fieldB = bSortFields[i]
+      if (fieldA !== fieldB) {
+        return fieldA.localeCompare(fieldB)
+      }
+    }
+
     if (indexAKind < indexBKind) { return -1 }
     else if (indexAKind > indexBKind) { return 1 }
-    else {
-      const aSortFields = sortFields.map(function(sortField) {
-        return a[sortField]
-      })
-      const bSortFields = sortFields.map(function(sortField) {
-        return b[sortField]
-      })
-      for (let i = 0; i < sortFields.length; i += 1) {
-        const fieldA = aSortFields[i]
-        const fieldB = bSortFields[i]
-        if (fieldA !== fieldB) {
-          return fieldA.localeCompare(fieldB)
-        }
-      }
-      return a.name.localeCompare(b.name)
-    }
+
+    return a.name.localeCompare(b.name)
   })
 }
 
