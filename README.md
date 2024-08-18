@@ -62,12 +62,16 @@ Note that jsdoc2md doesn't do anything with this file. It's passed through to `j
 
 ## Features
 
-(As compared to the base [dmd](https://github.com/jsdoc2md/dmd) template.)
+__Extended syntax__:
+- You can `@hide` or `@ignore` function parameters in the documentation; see [hide parameters](#hide-parameters).
 
+__New options__:
+- Adds configurable section title to main output; see the [title](#title) format option.
+- Adds support for simple list of global identifiers; see the [global index format](#global-index-format) option.
+
+__Layout improvements__ (As compared to the base [dmd](https://github.com/jsdoc2md/dmd) template):
 - Only display summary (first line) of documentation in the index and show full documentation in the linked entry. (This makes thins _a lot_ more compact.)
 - Added sorting of the underlying data so everything is displayed in a consistent order.
-- Adds configurable section title to main output; see [document option](#document-option).
-- Adds support for simple list of global identifiers (set `--global-index-format list`).
 - Add links to the source code where an identifier is defined.
 - Fixes all `<code>` and uses Markdown native backtick instead.
 - Uses compact method signatures in any index; much easier to read.
@@ -75,11 +79,19 @@ Note that jsdoc2md doesn't do anything with this file. It's passed through to `j
 - Makes the 'Examples' section more compact.
 - Only display identifier 'kind' when it's complex; otherwise it's obvious based on the section.
 
-## Formatting options
+## Extended syntax
+
+### Hide parameters
+
+- A parameter whose description contains the a `@hide` or `@ignore` tag will not be included in documentation.
+- This can be useful for parameters which are intended for use by the code/system.
+- Consider noting such variables somewhere in the documentation (under a 'Common parameters' section at the start of the API documentation for example).
+
+## Format options
 
 Note, some options can be set via the command line and via `.jsdoc2md.json` while others can only be set via the `.jsdoc2md.json` configuration file (placed in the project root).
 
-### Document title
+### Title
 
 - By default, the generated document will have a title 'API reference'.
 - You can override this by setting "title" in the `.jsdoc2md.json` configuration file (cannot be set via command line options).
