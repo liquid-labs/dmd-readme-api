@@ -1,6 +1,6 @@
 {{#globals kind=kind~}}
 {{#if @first~}}
-{{#if (hasMultipleKinds (_globals))}}- {{/if~}}{{../title}}:
+{{#if (hasMultipleKinds (_globals))}}- {{../title}}:{{/if}}{{! TODO: Add 'show-single-kind-title'}}
 {{/if~}}
 {{#if (hasMultipleKinds (_globals))}}  {{/if}}- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
 {{#if @last}}

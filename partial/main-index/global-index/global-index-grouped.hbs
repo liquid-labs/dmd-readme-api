@@ -1,3 +1,10 @@
 {{#groupGlobalsBy (option "group-by") kind=kind~}}
-{{>member-index-grouped~}}
+{{#if @first~}}
+{{{createIndexLink "global-" ../kind "-index"}}}
+{{#if (hasMultipleKinds (_globals))}}- {{../title}}:
+{{/if~}}{{! TODO: Add 'show-single-kind-title'~}}
+{{/if~}}
+{{#if (hasMultipleKinds (_globals))}}  {{/if}}{{>member-index-grouped noRecurse=true~}}
+{{#if @last}}
+{{/if~}}
 {{/groupGlobalsBy}}
