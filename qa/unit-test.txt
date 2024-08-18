@@ -1,0 +1,21 @@
+-n Test git rev: 
+e2908619732135c4cc6e0f68c6b178836d4f2354
+PASS test/partial/template.test.js
+PASS test/helpers/helpers.test.js
+PASS test/helpers/ddata.test.js
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |   89.18 |    90.47 |   80.95 |   92.98 |                   
+ dmd-readme-api         |       0 |      100 |     100 |       0 |                   
+  .eslintrc.js          |       0 |      100 |     100 |       0 | 1-60              
+ dmd-readme-api/helpers |   91.66 |    90.47 |   80.95 |   96.36 |                   
+  ddata.js              |   96.42 |    83.33 |     100 |   95.23 | 39                
+  helpers.js            |   88.63 |    93.33 |   66.66 |   97.05 | 5                 
+------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       39 passed, 39 total
+Snapshots:   0 total
+Time:        0.344 s, estimated 1 s
+Ran all test suites.

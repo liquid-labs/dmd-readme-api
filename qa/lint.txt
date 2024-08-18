@@ -1,0 +1,9 @@
+-n Test git rev: 
+e2908619732135c4cc6e0f68c6b178836d4f2354
+
+/Users/zane/playground/dmd-readme-api/helpers/ddata.js
+  43:1  error  Trailing spaces not allowed  no-trailing-spaces
+
+✖ 1 problem (1 error, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
