@@ -18,7 +18,7 @@ function extractSourceLink() {
 
 function extractSummary(description) {
   // No idea why, but the 'm' (multiline match) doesn't seem to be working...
-  const match = description.match(/([^.!?]+[.?!])(?:.|\n)*/m)
+  const match = description.match(/^((?:[^.!?]|\.\.\.|\.[^\s])+[.?!])(?:\s|$)/m)
   return (match && match[1]) || description
 }
 

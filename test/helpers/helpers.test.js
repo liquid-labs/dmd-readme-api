@@ -32,7 +32,14 @@ describe('extractSummary', () => {
     ['Wierd?', 'Wierd? But whatever.'],
     ['I has\nnewline.', 'I has\nnewline.'],
     ['I has\nnewline.', 'I has\nnewline. And another sentence.'],
-    ['I have no end', 'I have no end']
+    ['I have no end', 'I have no end'],
+    ['I has... ellipses.', 'I has... ellipses.'],
+    ['I has... ellipses.', 'I has... ellipses. And more!'],
+    ['Func(...) is fine.', 'Func(...) is fine. Right?'],
+    ['Func(..) is fine.', 'Func(..) is fine. Right?'],
+    ['127.2.2.1 is an IP address.', '127.2.2.1 is an IP address.'],
+    ['127.2.2.1 is an IP address.', '127.2.2.1 is an IP address. Or is it?'],
+    ['What.is.this?', 'What.is.this? A string sentence!']
   ])('extracts %s from %s', (expected, description) =>
     expect(extractSummary(description)).toBe(expected))
 })
