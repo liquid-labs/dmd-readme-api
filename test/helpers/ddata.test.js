@@ -1,5 +1,5 @@
 /* global describe expect test */
-const { handledKinds, hasMultipleKinds, sortAll } = require('../../helpers/ddata')
+const { handledKinds, sortAll } = require('../../helpers/ddata')
 
 const multiKinds = [
   { kind : 'function', name : 'aFunction' },

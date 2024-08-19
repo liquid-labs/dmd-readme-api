@@ -83,8 +83,6 @@ function ifLinkIndex(label) {
 }
 
 function makeIndexLinks(options) {
-  const noShowCategory = options.data.root.options['no-category-show']
-
   const { categoryIndex, hasCategoryIndex, kindIndex, hasKindIndex } = _indexLinksHelper.call(this, options)
 
   let result = ''
@@ -95,7 +93,7 @@ function makeIndexLinks(options) {
     const hasMultipleKindsInScope =
       Object.keys(options.data.root
         .filter((i) => i.scope === this.scope)
-        .reduce((acc, i) => { acc[i.kind] = true; return acc}, {})
+        .reduce((acc, i) => { acc[i.kind] = true; return acc }, {})
       ).length > 1
     const label = this.scope + (hasMultipleKindsInScope ? ' ' + this.kind : '')
     result += hasCategoryIndex === true ? ' | ' : ''
@@ -114,15 +112,15 @@ function hasIndexLinks(options) {
   return hasCategoryIndex || hasKindIndex
 }
 
-function _indexLinksHelper (options) {
-  const kindIndex = intraLink.call(this, this.scope, "-", this.kind, "-index", options)
+function _indexLinksHelper(options) {
+  const kindIndex = intraLink.call(this, this.scope, '-', this.kind, '-index', options)
   const hasKindIndex = knownIndexes[kindIndex]
 
   let categoryIndex
   let hasCategoryIndex = false
   const noShowCategory = options.data.root.options['no-category-show']
   if (noShowCategory && this.category !== undefined) {
-    categoryIndex = intraLink.call(this, this.scope, "-", this.kind, "-", this.category, "-index", options)
+    categoryIndex = intraLink.call(this, this.scope, '-', this.kind, '-', this.category, '-index', options)
     hasCategoryIndex = knownIndexes[categoryIndex]
   }
 
