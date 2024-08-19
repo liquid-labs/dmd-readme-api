@@ -1,0 +1,19 @@
+-n Test git rev: 
+d8a1bbdee3de1ffe95f6214bf435c02e7d2f39ac
+
+/Users/zane/playground/dmd-readme-api/helpers/helpers.js
+   86:9   error  'noShowCategory' is assigned a value but never used  no-unused-vars
+   98:61  error  Requires a space before '}'                          block-spacing
+  117:27  error  Unexpected space before function parentheses         space-before-function-paren
+  118:54  error  Strings must use singlequote                         quotes
+  118:70  error  Strings must use singlequote                         quotes
+  125:54  error  Strings must use singlequote                         quotes
+  125:70  error  Strings must use singlequote                         quotes
+  125:90  error  Strings must use singlequote                         quotes
+
+/Users/zane/playground/dmd-readme-api/test/helpers/ddata.test.js
+  2:23  error  'hasMultipleKinds' is assigned a value but never used  no-unused-vars
+
+✖ 9 problems (9 errors, 0 warnings)
+  7 errors and 0 warnings potentially fixable with the `--fix` option.
+
