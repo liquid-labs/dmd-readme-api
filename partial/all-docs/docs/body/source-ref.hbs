@@ -1,3 +1,1 @@
-[**Source code**]({{extractSourceLink}})
-
-{{! this keeps the editor from chomping our spacing line }}
+{{#unless (or (equal meta undefined) (equal (option "no-source-links") true))}}[source code]({{extractSourceLink}}){{/unless~}}

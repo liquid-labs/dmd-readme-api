@@ -14,10 +14,6 @@ const _handledKinds = [
 
 function handledKinds() { return _handledKinds }
 
-function hasMultipleKinds(globals) {
-  return Object.keys(globals.reduce((acc, g) => { acc[g.kind] = true; return acc }, {})).length > 1
-}
-
 function sortAll(sortFields, options) {
   options.data.root.sort((a, b) => {
     sortFields = [...sortFields, 'kind']
@@ -46,5 +42,4 @@ function sortAll(sortFields, options) {
 }
 
 exports.handledKinds = handledKinds
-exports.hasMultipleKinds = hasMultipleKinds
 exports.sortAll = sortAll
