@@ -1,0 +1,18 @@
+-n Test git rev: 
+b2064f4cc205a4f894dbd3168ecaf767edecade1
+PASS test/partial/template.test.js
+PASS test/helpers/helpers.test.js
+PASS test/helpers/ddata.test.js
+------------|---------|----------|---------|---------|----------------------
+File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+------------|---------|----------|---------|---------|----------------------
+All files   |   71.54 |    58.53 |   67.74 |   74.03 |                      
+ ddata.js   |      92 |    66.66 |     100 |     100 | 37-38                
+ helpers.js |   66.32 |    57.14 |   58.33 |   67.85 | 5,62-103,108,123-124 
+------------|---------|----------|---------|---------|----------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       45 passed, 45 total
+Snapshots:   0 total
+Time:        0.31 s, estimated 1 s
+Ran all test suites.
