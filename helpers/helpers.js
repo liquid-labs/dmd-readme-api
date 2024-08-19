@@ -118,8 +118,8 @@ function _indexLinksHelper(options) {
 
   let categoryIndex
   let hasCategoryIndex = false
-  const hideCategory = options.data.root.options['hide-category']
-  if (hideCategory && this.category !== undefined) {
+  const hideCategories = options.data.root.options['hide-categories']
+  if (hideCategories && this.category !== undefined) {
     categoryIndex = intraLink.call(this, this.scope, '-', this.kind, '-', this.category, '-index', options)
     hasCategoryIndex = knownIndexes[categoryIndex]
   }
