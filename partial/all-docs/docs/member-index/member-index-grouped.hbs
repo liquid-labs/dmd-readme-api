@@ -1,4 +1,6 @@
-{{string-repeat "    " (add level baseLevel)}}* {{#unless (equal _title undefined)}}_{{_title}}_{{else}}{{>sig-link}}{{/unless}}
+{{string-repeat "  " (add level baseLevel)}}- {{#unless (equal _title undefined)}}{{{createIndexLink scope "-" kind "-" _title "-index"}}}_{{_title}}_{{else}}{{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}{{/unless}}
+{{#unless (equal noRecurse true)~}}
 {{#groupBy (option "group-by")~}}
 {{>member-index-grouped baseLevel=(add ../level ../baseLevel 1)~}}
 {{/groupBy~}}
+{{/unless~}}

@@ -62,7 +62,9 @@ describe('template', () => {
 
     const output = dmd(multiDataSameKind, { plugin : pluginPath, noCache : true, 'global-index-format' : 'list' })
 
-    test('produces index listing single kind', () => expect(output).toMatch(/^Classes:/m))
+    test('produces index listing single kind (hides kind display)', () => expect(output).not.toMatch(/^Classes:/m))
+
+    test('links the identifiers in the index', () => expect(output).toMatch(/- \[anotherclass\]\(#anotherclass\)/m))
 
     test('documents the classes', () => {
       expect(output).toMatch(/is a class/m)
