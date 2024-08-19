@@ -1,5 +1,5 @@
 {{! first, let's see if there's any links to show... ~}}
-{{#if (and meta (equal (option "no-source-links") undefined))~}}
+{{#if (and meta (option "hide-source-links"))~}}
 <sup>↱{{#if (gte 3 (headingDepth))}}<sup>{{/if}}{{>source-ref~}}{{#if (gte 3 (headingDepth))}}</sup>{{/if}}</sup>{{#if (hasIndexLinks)}} {{/if}}{{/if~}}
 {{#if (hasIndexLinks)~}}
 <sup>⇧{{#if (gte 3 (headingDepth))}}<sup>{{/if}}{{>index-links~}}{{#if (gte 3 (headingDepth))}}</sup>{{/if}}</sup>{{/if~}}

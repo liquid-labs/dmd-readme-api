@@ -104,7 +104,7 @@ function makeIndexLinks(options) {
 }
 
 function hasIndexLinks(options) {
-  if (options.data.root.options['no-member-backlinks']) {
+  if (options.data.root.options['hide-index-links']) {
     return false
   }
   const { hasKindIndex, hasCategoryIndex } = _indexLinksHelper.call(this, options)
@@ -118,8 +118,8 @@ function _indexLinksHelper(options) {
 
   let categoryIndex
   let hasCategoryIndex = false
-  const noShowCategory = options.data.root.options['no-category-show']
-  if (noShowCategory && this.category !== undefined) {
+  const hideCategories = options.data.root.options['hide-categories']
+  if (hideCategories && this.category !== undefined) {
     categoryIndex = intraLink.call(this, this.scope, '-', this.kind, '-', this.category, '-index', options)
     hasCategoryIndex = knownIndexes[categoryIndex]
   }
