@@ -127,6 +127,11 @@ function _indexLinksHelper(options) {
   return { kindIndex, hasKindIndex, categoryIndex, hasCategoryIndex }
 }
 
+function displayName(name, options) {
+  const nameFormat = options.data.root.options['name-format']
+  return nameFormat === true ? `\`${name}\`` : name
+}
+
 // Helper fenctions
 const logicHelper = (argsArray) => {
   // we cut out the last arg because it's the implicit 'options' arg, which isn't really part of the input
@@ -135,6 +140,7 @@ const logicHelper = (argsArray) => {
   return testInput
 }
 
+exports.displayName = displayName
 exports.extractSourceLink = extractSourceLink
 exports.extractSummary = extractSummary
 exports.intraLink = intraLink
