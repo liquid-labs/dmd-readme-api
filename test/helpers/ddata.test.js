@@ -27,12 +27,6 @@ describe('handledKinds', () => {
   })
 })
 
-describe('hasMultipleKinds', () => {
-  test('recognizes multiple kinds', () => expect(hasMultipleKinds(multiKinds)).toBe(true))
-
-  test('recognizes a single kind', () => expect(hasMultipleKinds(singleKind)).toBe(false))
-})
-
 describe('sortAll', () => {
   const sortFields = ['scope', 'category']
 
