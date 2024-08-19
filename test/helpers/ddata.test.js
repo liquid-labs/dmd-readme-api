@@ -1,5 +1,5 @@
 /* global describe expect test */
-const { handledKinds, hasMultipleKinds, sortAll } = require('../../helpers/ddata')
+const { handledKinds, sortAll } = require('../../helpers/ddata')
 
 const multiKinds = [
   { kind : 'function', name : 'aFunction' },
@@ -25,12 +25,6 @@ describe('handledKinds', () => {
     expect(result.some(({ kind, title }) =>
       typeof kind !== 'string') && typeof title !== 'string').toBe(false)
   })
-})
-
-describe('hasMultipleKinds', () => {
-  test('recognizes multiple kinds', () => expect(hasMultipleKinds(multiKinds)).toBe(true))
-
-  test('recognizes a single kind', () => expect(hasMultipleKinds(singleKind)).toBe(false))
 })
 
 describe('sortAll', () => {

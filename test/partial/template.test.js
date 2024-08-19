@@ -1,7 +1,7 @@
 /* global describe expect test */
 const resolve = require('node:path').resolve
 
-const dmd = require('dmd')
+const dmd = require('@liquid-labs/dmd')
 
 const pluginPath = resolve(__dirname, '..', '..')
 

@@ -1,8 +1,8 @@
 {{#globals kind=kind~}}
 {{#if @first~}}
-{{#if (hasMultipleKinds (_globals))}}- {{../title}}:{{/if}}{{! TODO: Add 'show-single-kind-title'}}
+{{#if (hasMultipleIdentifiers "kind" scope="global")}}- {{../title}}:{{/if}}{{! TODO: Add 'show-single-kind-title'}}
 {{/if~}}
-{{#if (hasMultipleKinds (_globals))}}  {{/if}}- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
+{{#if (hasMultipleIdentifiers "kind" scope="global")}}  {{/if}}- {{>sig-name-only-link}}: {{{inlineLinks (extractSummary description)}}}
 {{#if @last}}
 {{/if~}}
 {{/globals}}
