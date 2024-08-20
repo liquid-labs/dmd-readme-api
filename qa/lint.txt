@@ -1,9 +1,0 @@
--n Test git rev: 
-071413d4b1cb681df1b086748dd304a3a4fd6cc3
-
-/Users/zane/playground/dmd-readme-api/helpers/helpers.js
-  22:38  error  Missing space after key 'keepMd'  key-spacing
-
-✖ 1 problem (1 error, 0 warnings)
-  1 error and 0 warnings potentially fixable with the `--fix` option.
-
