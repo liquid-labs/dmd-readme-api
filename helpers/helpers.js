@@ -1,3 +1,5 @@
+const { extractTopic } = require('extract-topic')
+
 const cwd = process.cwd()
 
 function extractSourceLink() {
@@ -17,9 +19,7 @@ function extractSourceLink() {
 }
 
 function extractSummary(description) {
-  // No idea why, but the 'm' (multiline match) doesn't seem to be working...
-  const match = description.match(/^((?:[^.!?]|\.\.\.|\.[^\s])+[.?!])(?:\s|$)/m)
-  return (match && match[1]) || description
+  return extractTopic(description)
 }
 
 function and() {
