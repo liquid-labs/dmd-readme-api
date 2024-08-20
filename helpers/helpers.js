@@ -19,7 +19,7 @@ function extractSourceLink() {
 }
 
 function extractSummary(description) {
-  return extractTopic(description)
+  return extractTopic(description, { keepMd : true, keepTags : true })
 }
 
 function and() {

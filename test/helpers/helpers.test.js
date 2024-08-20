@@ -36,6 +36,7 @@ describe('extractSummary', () => {
     ['I has... ellipses.', 'I has... ellipses.'],
     ['I has... ellipses.', 'I has... ellipses. And more!'],
     ['Func(...) is fine.', 'Func(...) is fine. Right?'],
+    ['__I__ *has* [<bold>formatting</bold>](#foo)!', '__I__ *has* [<bold>formatting</bold>](#foo)! Yay!'],
     ['Func(..) is fine.', 'Func(..) is fine. Right?'],
     ['127.2.2.1 is an IP address.', '127.2.2.1 is an IP address.'],
     ['127.2.2.1 is an IP address.', '127.2.2.1 is an IP address. Or is it?'],
