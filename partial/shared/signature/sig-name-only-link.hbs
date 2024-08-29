@@ -1,10 +1,10 @@
 {{#if virtual}}*{{/if}}{{#with (parentObject)}}{{#if virtual}}*{{/if~}}{{/with~}}
 {{#if name}}{{#sig~}}
 {{{@depOpen}~}}
-[{{{@codeOpen}~}}
+[{{{@codeOpen}~}}{{#if (and (option "name-format") (isClass))}}`{{/if~}}{{! see note in sig-name~}}
 {{#if @prefix}}{{@prefix}} {{/if~}}
 {{@accessSymbol}}{{#if (isEvent)}}"{{{name}}}"{{else}}{{{name}}}{{/if~}}
 {{~#if @methodSign}}{{#if (isEvent)}} (){{else}}(){{/if}}{{/if~}}
-{{{@codeClose}}}](#{{{anchorName}}}){{#if @suffix}} {{@suffix}}{{/if~}}
+{{{@codeClose}}}{{#if (and (option "name-format") (isClass))}}`{{/if~}}](#{{{anchorName}}}){{#if @suffix}} {{@suffix}}{{/if~}}
 {{{@depClose}~}}
 {{~/sig}}{{/if~}}

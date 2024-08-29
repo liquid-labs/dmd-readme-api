@@ -1,12 +1,12 @@
 {{#if virtual}}*{{/if}}{{#with (parentObject)}}{{#if virtual}}*{{/if~}}{{/with~}}
-{{#if name}}{{#sig~}}
+{{#if name}}{{#sig~}}{{#if (and (option "name-format") (isClass))}}`{{/if~}}{{! the 'sig' sets '@codeOpen'/'@codeClose' for all types except modules /and/ classes; the latter doesn't make any sense to me, so we handle that case here ~}}
 {{{@depOpen}~}}
 {{{@codeOpen}~}}
 {{#if @prefix}}{{@prefix}} {{/if~}}
 {{@parent~}}
 {{@accessSymbol}}{{#if (isEvent)}}"{{{name}}}"{{else}}{{#if @codeOpen}}{{{name}}}{{else}}{{{escape name}}}{{/if}}{{/if~}}
 {{#if @methodSign}}{{#if (isEvent)}} {{@methodSign}}{{else}}{{@methodSign}}{{/if}}{{/if~}}
-{{{@codeClose}~}}
+{{{@codeClose}~}}{{#if (and (option "name-format") (isClass))}}`{{/if~}}{{! see note above on handling class ~}}
 {{#if @returnSymbol}} {{@returnSymbol}}{{/if~}}
 {{#if @returnTypes}} {{>linked-type-list types=@returnTypes delimiter=" \| " }}{{/if~}}
 {{#if @suffix}} {{@suffix}}{{/if~}}
