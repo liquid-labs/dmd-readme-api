@@ -81,6 +81,8 @@ __Layout improvements__ (As compared to the base [dmd](https://github.com/jsdoc2
 - Add links from identifier documentation back to the both identifier "kind" and "category" indexes; see [index links options](#index-links).
 - Can suppress the display of '**Category**' in identifier documentation. Displaying the category is less important when we have `grouped` the items already, and this makes the code more compact. See [category display](#category-display) and [index links](#index-links) options.
 - The `name-format` option is also effective on parameter names in table layout mode.
+- The `name-format` option is also effective in class name index links and section headers.
+- Fixes escape issues with the display of 'default values' and displays string values in plain text (rather than monospaced).
 - When the identifer category is displayed, the category label is now a link back to the category index.
 - Fixes HTML style `<table>`s and uses native Markdown tables instead.
 - Fixes HTML `<code>` tags and uses Markdown native backtick instead.
